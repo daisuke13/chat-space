@@ -34,7 +34,7 @@ Anyone can have a chat online by using Chatspace.
 
 # Database
 
-# Messages
+## Messages
 
 |column  |   type   |                                  option|
 |:----:  |:--------:|:--------------------------------------:|
