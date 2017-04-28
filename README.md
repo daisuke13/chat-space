@@ -34,7 +34,7 @@ Anyone can have a chat online by using Chatspace.
 
 # Database
 
-Messages
+## Messages
 
 |column  |   type   |                                  option|
 |:----:  |:--------:|:--------------------------------------:|
@@ -46,7 +46,7 @@ Messages
 |        |          | add_reference :users, foreign_key: true|
 |        |          |add_reference :groups, foreign_key: true|
 
-Users
+## Users
 
 |column                |   type   |                                               option|
 |:--------------------:|:--------:|:---------------------------------------------------:|
@@ -65,14 +65,14 @@ Users
 |                      |          |add_index :users, :reset_password_token, unique: true|
 |name                  |  string  |                                          null: false|
 
-Groups
+## Groups
 
 |column    |   type   |     option|
 |:--------:|:--------:|:---------:|
 |name      |  string  |null: false|
 |          |timestamps|           |
 
-GroupUsers
+## GroupUsers
 
 |column    |   type   |option|
 |:--------:|:--------:|:----:|
@@ -83,16 +83,16 @@ GroupUsers
 
 # Asociation
 
-Message
+## Message
   belongs_to :user
   belongs_to :group
 
-User
+## User
   has_many :messages
   has_many :groups, through: :group_users
   has_many :group_users
 
-Group
+## Group
   has_many :users, through: :group_users
   has_many :messages
   has_many :group_users
