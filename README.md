@@ -36,14 +36,15 @@ Anyone can have a chat online by using Chatspace.
 
 Messages
 
-|column  |   type   |                                 option|
-|:----:  |:--------:|:-------------------------------------:|
-|body    |   text   |                                       |
-|image   |  string  |                                       |
-|user_id | integer  |                             null:false|
-|group_id| integer  |                             null:false|
-|        |timestamps|                                       |
-|        |          |add_reference :users, foreign_key: true|
+|column  |   type   |                                  option|
+|:----:  |:--------:|:--------------------------------------:|
+|body    |   text   |                                        |
+|image   |  string  |                                        |
+|user_id | integer  |                              null:false|
+|group_id| integer  |                              null:false|
+|        |timestamps|                                        |
+|        |          | add_reference :users, foreign_key: true|
+|        |          |add_reference :groups, foreign_key: true|
 
 Users
 
@@ -68,7 +69,7 @@ Groups
 
 |column    |   type   |     option|
 |:--------:|:--------:|:---------:|
-|group_name|  string  |null: false|
+|name      |  string  |null: false|
 |          |timestamps|           |
 
 GroupUsers
