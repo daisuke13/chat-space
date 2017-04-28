@@ -23,10 +23,8 @@ Things you may want to cover:
 
 * ...
 
-Name: Chatspace
-====
-
-Overview
+#Name
+Chatspace
 
 # Description
 
@@ -34,18 +32,19 @@ Anyone can have a chat online by using Chatspace.
 
 # Database
 
-Messages
+## Messages
 
-|column  |   type   |                                 option|
-|:----:  |:--------:|:-------------------------------------:|
-|body    |   text   |                                       |
-|image   |  string  |                                       |
-|user_id | integer  |                             null:false|
-|group_id| integer  |                             null:false|
-|        |timestamps|                                       |
-|        |          |add_reference :users, foreign_key: true|
+|column  |   type   |                                  option|
+|:----:  |:--------:|:--------------------------------------:|
+|body    |   text   |                                        |
+|image   |  string  |                                        |
+|user_id | integer  |                              null:false|
+|group_id| integer  |                              null:false|
+|        |timestamps|                                        |
+|        |          | add_reference :users, foreign_key: true|
+|        |          |add_reference :groups, foreign_key: true|
 
-Users
+## Users
 
 |column                |   type   |                                               option|
 |:--------------------:|:--------:|:---------------------------------------------------:|
@@ -64,14 +63,14 @@ Users
 |                      |          |add_index :users, :reset_password_token, unique: true|
 |name                  |  string  |                                          null: false|
 
-Groups
+## Groups
 
 |column    |   type   |     option|
 |:--------:|:--------:|:---------:|
-|group_name|  string  |null: false|
+|name      |  string  |null: false|
 |          |timestamps|           |
 
-GroupUsers
+## GroupUsers
 
 |column    |   type   |option|
 |:--------:|:--------:|:----:|
@@ -82,16 +81,16 @@ GroupUsers
 
 # Asociation
 
-Message
+## Message
   belongs_to :user
   belongs_to :group
 
-User
+## User
   has_many :messages
   has_many :groups, through: :group_users
-  has_many :user_groups
+  has_many :group_users
 
-Group
+## Group
   has_many :users, through: :group_users
   has_many :messages
-  has_many :user_groups
+  has_many :group_users
