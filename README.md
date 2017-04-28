@@ -28,11 +28,11 @@ Name: Chatspace
 
 Overview
 
-## Description
+# Description
 
 Anyone can have a chat online by using Chatspace.
 
-## Database
+# Database
 
 Messages
 
@@ -80,7 +80,7 @@ UserGroups
 |        |timestamps|        |
 
 
-##Asociation
+# Asociation
 
 Message
   belongs_to :user
