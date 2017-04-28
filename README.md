@@ -23,10 +23,8 @@ Things you may want to cover:
 
 * ...
 
-Name: Chatspace
-====
-
-Overview
+#Name
+Chatspace
 
 # Description
 
