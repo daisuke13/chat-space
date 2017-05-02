@@ -8,7 +8,9 @@
         %h3 daisuke
       .chat-side__user-content-btn
         %i.fa.fa-pencil-square-o
+          = link_to '', ""
         %i.fa.fa-cog
+          = link_to '', ""
   .chat-side__groups
     .chat-side__groups-list
       .chat-side__groups-list-group
@@ -45,7 +47,8 @@
   .chat-main__footer
     .chat-main__footer--form
       %input.text{:cols => "80", :name => "name", :placeholder => "type a message", :rows => "1"}
-        .chat-main__footer--form-pic
-          %i.fa.fa-picture-o
-      %input.btn{:name => "SENT", :type => "submit"}
+      .chat-main__footer--form-pic
+        %i.fa.fa-picture-o
+          = link_to '', ""
+    %input.btn{:name => "SENT", :type => "submit"}
 

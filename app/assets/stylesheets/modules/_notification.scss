@@ -4,7 +4,8 @@
   width: 100vw;
 
   .notice {
-    color: #FFFFFF;
+    $side_color: #FFFFFF;
+    color: $side_color;
     text-align: center;
   }
 }
