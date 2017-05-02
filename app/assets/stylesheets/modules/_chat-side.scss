@@ -27,26 +27,27 @@
       }
     }
   }
+
   &__groups {
     background-color: #2f3e51;
     height: calc(100vh - 140px);
     padding: 20px 0 20px 20px;
     box-sizing: border-box;
 
-      &-list {
+    &-list {
 
-        &-group {
-          padding-bottom: 40px;
+      &-group {
+        padding-bottom: 40px;
 
-          &-name {
-            font-size: 15px;
-            padding-bottom: 5px;
-          }
+        &-name {
+          font-size: 15px;
+          padding-bottom: 5px;
+        }
 
-          &-message {
-            font-size: 11px;
-          }
+        &-message {
+          font-size: 11px;
         }
       }
+    }
   }
 }
