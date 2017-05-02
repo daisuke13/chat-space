@@ -48,7 +48,8 @@
     .chat-main__footer--form
       %input.text{:cols => "80", :name => "name", :placeholder => "type a message", :rows => "1"}
       .chat-main__footer--form-pic
-        %i.fa.fa-picture-o
-          = link_to '', ""
+        %label{:for => "photo"}
+          %i.fa.fa-picture-o
+            %input#photo{:style => "display: none;", :type => "file"}
     %input.btn{:name => "SENT", :type => "submit"}
 

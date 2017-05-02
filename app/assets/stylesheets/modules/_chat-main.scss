@@ -26,6 +26,7 @@ $main_color: #999999;
         margin-top: 28px;
         padding: 10px 20px;
         float: right;
+        text-decoration: none;
       }
 
     }
@@ -41,7 +42,7 @@ $main_color: #999999;
   }
 
   &__body {
-    height: calc(100vh - 240px);
+    height: calc(100vh - 270px);
     padding: 40px 40px 0;
 
     &--messages-list {
@@ -86,15 +87,25 @@ $main_color: #999999;
       & input.text {
         background-color: white;
         height: 50px;
-        width: calc(100vw - 380px - 105px - 80px);
+        width: calc(100vw - 380px - 105px - 60px);
+        padding-left: 10px;
         float: left;
+        border: none;
       }
 
       &-pic {
         background-color: white;
-        height: 54px;
+        height: 50px;
         width: 50px;
         float: right;
+        position: relative;
+
+        & label {
+          padding: 20px;
+          position: absolute;
+          top: -7px;
+          left: 3px;
+        }
       }
     }
 
@@ -104,6 +115,7 @@ $main_color: #999999;
       height: 50px;
       width: 90px;
       float: right;
+      border: none;
     }
   }
 }
