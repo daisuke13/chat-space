@@ -1,0 +1,11 @@
+.notification {
+  background-color: #38AEF0;
+  height: 30px;
+  width: 100vw;
+
+  .notice {
+    $side_color: #FFFFFF;
+    color: $side_color;
+    text-align: center;
+  }
+}

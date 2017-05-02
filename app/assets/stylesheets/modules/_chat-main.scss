@@ -1,0 +1,119 @@
+$main_color: #999999;
+
+.chat-main {
+  height: 100vh;
+  width: calc(100vw - 300px);
+  float:right;
+
+  &__header {
+    height: 109px;
+    border-bottom: solid 1px #eeeeee;
+    padding: 0 40px;
+
+    &--group {
+
+
+      &-name {
+        font-size: 20px;
+        color: #333333;
+        margin: 35px 0 15px;
+        float: left;
+      }
+
+      &-edit-btn {
+        height: 20px;
+        border: 1px solid #38AEF0;
+        margin-top: 28px;
+        padding: 10px 20px;
+        float: right;
+        text-decoration: none;
+      }
+    }
+
+    &--members.clearfix {
+      font-size: 12px;
+      color: $main_color;
+      content: "";
+      clear: both;
+      display: block;
+    }
+  }
+
+  &__body {
+    height: calc(100vh - 270px);
+    padding: 40px 40px 0;
+
+    &--messages-list {
+
+      &-message {
+        padding-bottom: 40px;
+
+        &-name {
+          font-size: 16px;
+          font-weight: bold;
+          color: #434A54;
+          padding-bottom: 10px;
+          padding-right: 10px;
+          float: left;
+        }
+
+        &-date {
+          font-size: 12px;
+          color: $main_color;
+          padding: 4px;
+          float: left;
+        }
+
+        &-comment {
+          font-size: 14px;
+          color: #434A54;
+          clear: both;
+        }
+      }
+    }
+  }
+
+  &__footer {
+    background-color: #AAAAAA;
+    height: 50px;
+    width: calc(100vw - 380px);
+    padding: 20px 40px;
+
+    &--form {
+      float: left;
+
+      & input.text {
+        background-color: white;
+        height: 50px;
+        width: calc(100vw - 380px - 105px - 60px);
+        padding-left: 10px;
+        float: left;
+        border: none;
+      }
+
+      &-pic {
+        background-color: white;
+        height: 50px;
+        width: 50px;
+        float: right;
+        position: relative;
+
+        & label {
+          padding: 20px;
+          position: absolute;
+          top: -7px;
+          left: 3px;
+        }
+      }
+    }
+
+    & input.btn {
+      color: white;
+      background-color: #38AEF0;
+      height: 50px;
+      width: 90px;
+      float: right;
+      border: none;
+    }
+  }
+}

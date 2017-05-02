@@ -1,0 +1,55 @@
+.notification
+  .notice
+    %h4 チャットグループが作成されました。
+.chat-side
+  .chat-side__user
+    .chat-side__user-content
+      .chat-side__user-content-name
+        %h3 daisuke
+      .chat-side__user-content-btn
+        %i.fa.fa-pencil-square-o
+          = link_to '', ""
+        %i.fa.fa-cog
+          = link_to '', ""
+  .chat-side__groups
+    .chat-side__groups-list
+      .chat-side__groups-list-group
+        .chat-side__groups-list-group-name group1
+        .chat-side__groups-list-group-message まだメッセージはありません。
+      .chat-side__groups-list-group
+        .chat-side__groups-list-group-name group2
+        .chat-side__groups-list-group-message まだメッセージはありません。
+      .chat-side__groups-list-group
+        .chat-side__groups-list-group-name group3
+        .chat-side__groups-list-group-message まだメッセージはありません。
+.chat-main
+  .chat-main__header
+    .chat-main__header--group
+      .chat-main__header--group-name sampleグループ
+      .chat-main__header--group-edit-btn
+        = link_to 'Edit', ""
+    .chat-main__header--members.clearfix
+      %h4 MEMBER: saru kani hachi
+  .chat-main__body
+    .chat-main__body--messages-list
+      .chat-main__body--messages-list-message
+        .chat-main__body--messages-list-message-name name
+        .chat-main__body--messages-list-message-date 2017/4/3
+        .chat-main__body--messages-list-message-comment コメントです。
+      .chat-main__body--messages-list-message
+        .chat-main__body--messages-list-message-name name2
+        .chat-main__body--messages-list-message-date 2017/4/4
+        .chat-main__body--messages-list-message-comment おはよう
+      .chat-main__body--messages-list-message
+        .chat-main__body--messages-list-message-name name3
+        .chat-main__body--messages-list-message-date 2017/4/5
+        .chat-main__body--messages-list-message-comment おやすみ
+  .chat-main__footer
+    .chat-main__footer--form
+      %input.text{:cols => "80", :name => "name", :placeholder => "type a message", :rows => "1"}
+      .chat-main__footer--form-pic
+        %label{:for => "photo"}
+          %i.fa.fa-picture-o
+            %input#photo{:style => "display: none;", :type => "file"}
+    %input.btn{:name => "SENT", :type => "submit"}
+
