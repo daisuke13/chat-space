@@ -5,12 +5,13 @@
   .chat-side__user
     .chat-side__user-content
       .chat-side__user-content-name
-        %h3 daisuke
+        %h3
+          = current_user.name
       .chat-side__user-content-btn
-        %i.fa.fa-pencil-square-o
-          = link_to '', ""
-        %i.fa.fa-cog
-          = link_to '', ""
+        = link_to do
+          %i.fa.fa-pencil-square-o
+        = link_to edit_user_path(current_user) do
+          %i.fa.fa-cog
   .chat-side__groups
     .chat-side__groups-list
       .chat-side__groups-list-group
@@ -52,5 +53,4 @@
           %i.fa.fa-picture-o
             %input#photo{:style => "display: none;", :type => "file"}
     %input.btn{:name => "SENT", :type => "submit"}
-
 
