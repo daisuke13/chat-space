@@ -5,11 +5,12 @@
   .chat-side__user
     .chat-side__user-content
       .chat-side__user-content-name
-        %h3 daisuke
+        %h3
+          = current_user.name
       .chat-side__user-content-btn
-        = link_to edit_user_path(current_user) do
-          %i.fa.fa-pencil-square-o
         = link_to do
+          %i.fa.fa-pencil-square-o
+        = link_to edit_user_registration_path do
           %i.fa.fa-cog
   .chat-side__groups
     .chat-side__groups-list
