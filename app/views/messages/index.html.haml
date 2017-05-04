@@ -7,7 +7,7 @@
       .chat-side__user-content-name
         %h3 daisuke
       .chat-side__user-content-btn
-        = link_to edit_user_registration_path do
+        = link_to edit_user_path(current_user) do
           %i.fa.fa-pencil-square-o
         = link_to do
           %i.fa.fa-cog
