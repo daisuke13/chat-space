@@ -7,14 +7,15 @@
         %h3
           = current_user.name
       .chat-side__user-content-btn
-        = link_to do
+        = link_to new_group_path do
           %i.fa.fa-pencil-square-o
         = link_to edit_user_path(current_user) do
           %i.fa.fa-cog
   .chat-side__groups
     .chat-side__groups-list
       .chat-side__groups-list-group
-        .chat-side__groups-list-group-name group1
+        .chat-side__groups-list-group-name
+          = @group_name
         .chat-side__groups-list-group-message まだメッセージはありません。
       .chat-side__groups-list-group
         .chat-side__groups-list-group-name group2
@@ -27,9 +28,9 @@
     .chat-main__header--group
       .chat-main__header--group-name sampleグループ
       .chat-main__header--group-edit-btn
-        = link_to 'Edit', ""
+        / = link_to 'Edit', edit_group_path()
     .chat-main__header--members.clearfix
-      %h4 MEMBER: saru kani hachi
+      %h4 MEMBER: 木村 山下 井上
   .chat-main__body
     .chat-main__body--messages-list
       .chat-main__body--messages-list-message
