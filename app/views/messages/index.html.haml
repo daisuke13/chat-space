@@ -15,7 +15,6 @@
     .chat-side__groups-list
       .chat-side__groups-list-group
         .chat-side__groups-list-group-name
-          = @group_name
         .chat-side__groups-list-group-message まだメッセージはありません。
       .chat-side__groups-list-group
         .chat-side__groups-list-group-name group2
@@ -30,7 +29,10 @@
       .chat-main__header--group-edit-btn
         / = link_to 'Edit', edit_group_path()
     .chat-main__header--members.clearfix
-      %h4 MEMBER: 木村 山下 井上
+      %h4
+        Member:
+        -@group.users.each do |user|
+          %span= user.name
   .chat-main__body
     .chat-main__body--messages-list
       .chat-main__body--messages-list-message
