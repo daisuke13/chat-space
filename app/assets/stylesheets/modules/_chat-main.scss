@@ -21,12 +21,17 @@ $main_color: #999999;
       }
 
       &-edit-btn {
+        color: white;
         height: 20px;
         border: 1px solid #38AEF0;
         margin-top: 28px;
         padding: 10px 20px;
         float: right;
-        text-decoration: none;
+
+        a {
+          color: #38AEF0;
+          text-decoration: none;
+        }
       }
     }
 

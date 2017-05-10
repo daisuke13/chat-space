@@ -13,30 +13,10 @@
           %i.fa.fa-cog
   .chat-side__groups
     .chat-side__groups-list
-      .chat-side__groups-list-group
-
-      .chat-side__groups-list-group
-
-      .chat-side__groups-list-group
-
-.chat-main
-  .chat-main__header
-    .chat-main__header--group
-      .chat-main__header--group-name
-      .chat-main__header--group-edit-btn
-        / = link_to 'Edit', edit_group_path()
-    .chat-main__header--members.clearfix
-
-  .chat-main__body
-    .chat-main__body--messages-list
-      .chat-main__body--messages-list-message
-
-  .chat-main__footer
-    .chat-main__footer--form
-      %input.text{:cols => "80", :name => "name", :placeholder => "type a message", :rows => "1"}
-      .chat-main__footer--form-pic
-        %label{:for => "photo"}
-          %i.fa.fa-picture-o
-            %input#photo{:style => "display: none;", :type => "file"}
-    %input.btn{:name => "SENT", :type => "submit"}
-
+      - if @groups.present?
+        - @groups.each do |group|
+          .chat-side__groups-list-group
+            %p.group-name
+              = link_to group.name, group_messages_path(group)
+            %p.group-message
+              まだメッセージはありません。

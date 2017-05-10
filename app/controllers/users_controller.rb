@@ -5,15 +5,15 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    if user.update(user_params)
-      redirect_to :root, notice: '編集されました'
+    if user.update_with_password(user_params)
+      redirect_to root_path, notice: '編集されました'
     else
-      redirect_to :edit_user_path, alert: 'エラーが発生しました'
+      redirect_to edit_user_path, alert: 'エラーが発生しました'
     end
   end
 
   private
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :password, :password_confirmation, :current_password)
   end
 end
