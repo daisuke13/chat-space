@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(group_params)
+    @group = current_user.groups.new(group_params)
     if @group.save
       redirect_to group_messages_path(@group), notice: "グループを作成しました"
     else
@@ -22,7 +22,8 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to group_messages_path(@group), notice: '編集されました'
     else
-      render :edit, alert: 'エラーが発生しました'
+      flash.now[:alert] = "エラーが発生しました"
+      render :edit
     end
   end
 
@@ -35,3 +36,4 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, user_ids: [])
   end
 end
+

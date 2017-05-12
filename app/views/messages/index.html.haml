@@ -4,12 +4,13 @@
   = render "chat-main__header"
   .chat-main__body
     .chat-main__body--messages-list
-      - @messages.each do |message|
-        .chat-main__body--messages-list-message
-          .chat-main__body--messages-list-message-name
-            = message.user.name
-          .chat-main__body--messages-list-message-date
-            = message.created_at
-          .chat-main__body--messages-list-message-comment
-            = message.body
+      - if @messages.present?
+        - @messages.each do |message|
+          .chat-main__body--messages-list-message
+            .chat-main__body--messages-list-message-name
+              = message.user.name
+            .chat-main__body--messages-list-message-date
+              = message.created_at
+            .chat-main__body--messages-list-message-comment
+              = message.body
   = render "chat-main__footer"

@@ -1,21 +1,27 @@
 class MessagesController < ApplicationController
+
+  before_action :definition, only: [:index, :create]
+
   def index
     @groups = current_user.groups
-    @group = Group.find(params[:group_id])
     @message = Message.new
-    @messages = Message.all
+    @messages = @group.messages.includes(:user)
   end
 
   def create
     @groups = current_user.groups
-    @group = Group.find(params[:group_id])
     @message = Message.new(message_params)
+    @messages = @group.messages.includes(:user)
     if @message.save
       redirect_to group_messages_path
     else
       flash.now[:alert] = "エラーが発生しました"
       render :index
     end
+  end
+
+  def definition
+    @group = Group.find(params[:group_id])
   end
 
   private
