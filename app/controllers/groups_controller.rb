@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
       redirect_to group_messages_path(@group), notice: "グループを作成しました"
     else
       flash.now[:alert] = "グループ名を入力してください"
-      render 'new'
+      render :new
     end
   end
 
@@ -18,11 +18,11 @@ class GroupsController < ApplicationController
   end
 
   def update
-    group = Group.find(params[:id])
-    if group.update(group_params)
-      redirect_to group_messages_path(group), notice: '編集されました'
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      redirect_to group_messages_path(@group), notice: '編集されました'
     else
-      redirect_to edit_group_path, alert: 'エラーが発生しました'
+      render :edit, alert: 'エラーが発生しました'
     end
   end
 
