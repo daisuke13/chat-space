@@ -1,6 +1,8 @@
 require 'rails_helper'
 describe Message do
   describe '#create' do
+    let(:message) { FactoryGirl.build(:message)}
+
     it "is invalid without a body" do
       message = build(:message, body: "")
       message.valid?
