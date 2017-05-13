@@ -47,6 +47,7 @@ $main_color: #999999;
   &__body {
     height: calc(100vh - 240px);
     padding: 40px 40px 0;
+    overflow: scroll;
 
     &--messages-list {
 
@@ -87,7 +88,7 @@ $main_color: #999999;
     &--form {
       float: left;
 
-      & input.text {
+      .input-text {
         background-color: white;
         height: 50px;
         width: calc(100vw - 380px - 105px - 60px);
@@ -103,16 +104,20 @@ $main_color: #999999;
         float: right;
         position: relative;
 
-        & label {
+        i {
           padding: 20px;
           position: absolute;
-          top: -7px;
+          top: -4px;
           left: 3px;
+
+          .file-picture[type="file"] {
+            display: none;
+          }
         }
       }
     }
 
-    & input.btn {
+    .submit-btn {
       color: white;
       background-color: #38AEF0;
       height: 50px;

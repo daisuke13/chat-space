@@ -1,37 +1,15 @@
 = render "groups/chat-side"
 
 .chat-main
-  .chat-main__header
-    .chat-main__header--group
-      .chat-main__header--group-name
-        = @group.name
-      .chat-main__header--group-edit-btn
-        = link_to 'Edit', edit_group_path(@group)
-    .chat-main__header--members.clearfix
-      %h4
-        Member:
-        - @group.users.each do |user|
-          %span= user.name
+  = render "chat-main__header"
   .chat-main__body
     .chat-main__body--messages-list
-      .chat-main__body--messages-list-message
-        .chat-main__body--messages-list-message-name name
-        .chat-main__body--messages-list-message-date 2017/4/3
-        .chat-main__body--messages-list-message-comment コメントです。
-      .chat-main__body--messages-list-message
-        .chat-main__body--messages-list-message-name name2
-        .chat-main__body--messages-list-message-date 2017/4/4
-        .chat-main__body--messages-list-message-comment おはよう
-      .chat-main__body--messages-list-message
-        .chat-main__body--messages-list-message-name name3
-        .chat-main__body--messages-list-message-date 2017/4/5
-        .chat-main__body--messages-list-message-comment おやすみ
-  .chat-main__footer
-    .chat-main__footer--form
-      %input.text{:cols => "80", :name => "name", :placeholder => "type a message", :rows => "1"}
-      .chat-main__footer--form-pic
-        %label{:for => "photo"}
-          %i.fa.fa-picture-o
-            %input#photo{:style => "display: none;", :type => "file"}
-    %input.btn{:name => "SENT", :type => "submit"}
-
+      - @messages.each do |message|
+        .chat-main__body--messages-list-message
+          .chat-main__body--messages-list-message-name
+            = message.user.name
+          .chat-main__body--messages-list-message-date
+            = message.created_at
+          .chat-main__body--messages-list-message-comment
+            = message.body
+  = render "chat-main__footer"
