@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe MessagesController, type: :controller do
-  let(:message) {FactoryGirl.create(:message)}
-  let(:group) {FactoryGirl.create(:group, messages:[message])}
+  let(:message) { FactoryGirl.create(:message) }
+  let(:group) { FactoryGirl.create(:group, messages:[message]) }
 
   describe 'GET #index' do
     describe 'if user log in' do

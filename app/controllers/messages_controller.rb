@@ -4,9 +4,7 @@ class MessagesController < ApplicationController
   before_action :set_messages, only: [:index, :create]
 
   def index
-    # binding.pry
     @message = Message.new
-    # binding.pry
   end
 
   def create
@@ -24,9 +22,7 @@ class MessagesController < ApplicationController
   end
 
   def set_messages
-    # binding.pry
     @messages = @group.messages.includes(:user)
-    # binding.pry
   end
 
   private
