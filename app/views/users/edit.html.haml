@@ -7,7 +7,7 @@
       = link_to "トップページに戻る", :root, class: 'btn'
     .account-page__inner--right.user-form
       = form_for(@user, url: user_path(@user), html: { method: :put }) do |f|
-        / = devise_error_messages!
+        = devise_error_messages!
         .field
           .field-label
             = f.label :name
