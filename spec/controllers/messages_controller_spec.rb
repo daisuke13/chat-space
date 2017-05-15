@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe MessagesController, type: :controller do
   let(:message) { FactoryGirl.create(:message) }
   let(:group) { FactoryGirl.create(:group, messages:[message]) }
+  let(:user) { FactoryGirl.create(:user)}
 
   describe 'GET #index' do
-    describe 'if user log in' do
+    context 'if the user log in' do
       before do
-        @user = create(:user)
-        login_user @user
+        login_user user
       end
 
       it "assigns the requested message to @message" do
@@ -32,7 +32,7 @@ RSpec.describe MessagesController, type: :controller do
       end
     end
 
-    describe 'if user does not log in' do
+    context 'if the user does not log in' do
       it "renders the new_user_session_path template" do
         get :index, {group_id: group.id}
         expect(response).to redirect_to new_user_session_path
