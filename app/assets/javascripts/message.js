@@ -25,7 +25,6 @@ $(function() {
     })
     .done(function(data) {
       var html = buildHTML(data);
-      console.log(html)
       $('.chat-main__body--messages-list').append(html);
       textField.val('');
       $("input").prop("disabled", false)
