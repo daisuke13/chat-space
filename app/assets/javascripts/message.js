@@ -34,7 +34,6 @@ $(function() {
       $('.chat-main__body--messages-list').append(html);
       textField.val('');
       $("input").prop("disabled", false)
-      // var pos = $('chat-main__body--messages-list-message').height();
       $('.chat-main__body').delay(100).animate({
           scrollTop: $('.chat-main__body')[0].scrollHeight
       }, 1500);
@@ -44,8 +43,3 @@ $(function() {
     });
   });
 });
-
-var pos = $('.〇〇').height();
-$('.〇〇').animate({
-    〇〇: pos
-}, 'slow', 'swing');
