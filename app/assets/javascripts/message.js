@@ -15,6 +15,12 @@ $(function() {
     return html;
   }
 
+  function flash() {
+    var html =
+      `<p class="alert alert-notice">メッセージを送信しました</p>`
+    $('.alert').append(html);
+  }
+
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var textField = $('#message_body');
@@ -37,7 +43,11 @@ $(function() {
       $('.chat-main__body').delay(100).animate({
           scrollTop: $('.chat-main__body')[0].scrollHeight
       }, 1500);
+
+      flash();
+      $(".alert-notice").fadeIn(1000).fadeOut(3000);
     })
+
     .fail(function() {
       alert('メッセージを送信できませんでした');
     });
