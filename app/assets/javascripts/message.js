@@ -1,8 +1,11 @@
 $(function() {
   function buildHTML(message) {
-    var html = '<div class = "chat-main__body--messages-list-message-name">' + message.name + "</div>"
-    + '<div class = "chat-main__body--messages-list-message-date">' + message.created_at + "</div>"
-    + '<div class = "chat-main__body--messages-list-message-comment">' + message.body + "</div>"
+    var html = 
+    `<div class = "chat-main__body--messages-list-message">`
+    + `<div class = "chat-main__body--messages-list-message-name">` + message.name + `</div>`
+    + `<div class = "chat-main__body--messages-list-message-date">` + message.created_at + `</div>`
+    + `<div class = "chat-main__body--messages-list-message-comment">` + message.body + `</div>`
+    + `</div>`
     return html;
   }
 
@@ -22,7 +25,8 @@ $(function() {
     })
     .done(function(data) {
       var html = buildHTML(data);
-      $('.chat-main__body--messages-list-message').append(html);
+      console.log(html)
+      $('.chat-main__body--messages-list').append(html);
       textField.val('');
       $("input").prop("disabled", false)
     })
