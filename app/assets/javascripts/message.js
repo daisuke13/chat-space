@@ -1,11 +1,17 @@
 $(function() {
   function buildHTML(message) {
     var html =
-    `<div class = "chat-main__body--messages-list-message">`
-    + `<div class = "chat-main__body--messages-list-message-name">` + message.name + `</div>`
-    + `<div class = "chat-main__body--messages-list-message-date">` + message.created_at + `</div>`
-    + `<div class = "chat-main__body--messages-list-message-comment">` + message.body + `</div>`
-    + `</div>`
+      `<div class = "chat-main__body--messages-list-message">
+         <div class = "chat-main__body--messages-list-message-name">
+           ${message.name}
+         </div>
+         <div class = "chat-main__body--messages-list-message-date">
+           ${message.created_at}
+         </div>
+         <div class = "chat-main__body--messages-list-message-comment">
+           ${message.body}
+         </div>
+       </div>`
     return html;
   }
 
@@ -28,9 +34,18 @@ $(function() {
       $('.chat-main__body--messages-list').append(html);
       textField.val('');
       $("input").prop("disabled", false)
+      // var pos = $('chat-main__body--messages-list-message').height();
+      $('.chat-main__body').delay(100).animate({
+          scrollTop: $('.chat-main__body')[0].scrollHeight
+      }, 1500);
     })
     .fail(function() {
       alert('メッセージを送信できませんでした');
     });
   });
 });
+
+var pos = $('.〇〇').height();
+$('.〇〇').animate({
+    〇〇: pos
+}, 'slow', 'swing');
