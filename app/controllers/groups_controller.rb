@@ -30,6 +30,13 @@ class GroupsController < ApplicationController
   def index
   end
 
+  def search
+    @users = User.where('name like?', "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.json { render 'search.json.jbuilder', handlers: :jbuilder }
+    end
+  end
+
   private
   def group_params
     params.require(:group).permit(:name, user_ids: [])
