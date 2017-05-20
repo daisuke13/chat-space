@@ -8,6 +8,7 @@ $(function() {
        <a class = "user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id = "${user.id}" data-user-name = "${user.name}">追加</a>
      </div>`;
      $('#user-search-result').append(html)
+     console.log(html)
   }
 
 //追加ボタンクリック後の、ユーザー名と削除ボタンのHTML
@@ -34,16 +35,15 @@ $(function() {
     var input = $.trim($(this).val());
 
     $.ajax({
-      url: '/groups/search',
+      url: '/users/search',
       type: 'GET',
       data: ('keyword=' + input),
-      processData: false,
-      contentType: false,
       dataType: 'json'
     })
 
 //コントローラーからデータ取得後、ユーザーリストの作成
     .done(function(data) {
+      console.log(data)
       $('#user-search-result').find('.chat-group-user').remove();
       $(data).each(function(i, user) {
         appendList(user)
@@ -57,7 +57,6 @@ $(function() {
     var id = add_user.data('user-id');
     var name = add_user.data('user-name');
     var html = buildHTML(id, name);
-    console.log(html)
     $('#chat-group-users').append(html);
     add_user.parent().remove();
   })
