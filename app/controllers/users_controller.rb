@@ -12,7 +12,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    @users = User.where('name like?', "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.json
+    end
+  end
+
   private
+
   def user_params
     params.require(:user).permit(:name, :password, :password_confirmation, :current_password)
   end
