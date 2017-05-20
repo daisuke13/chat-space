@@ -15,6 +15,14 @@ $(function() {
     return html;
   }
 
+  function buildMessage(message) {
+    var message =
+      `<p class = "group-message">
+           ${message.body}
+       </p>`
+    return message;
+  }
+
   function flash() {
     var html =
       `<p class="alert-notice">メッセージを送信しました</p>`
@@ -51,6 +59,10 @@ $(function() {
       $('.chat-main__body--messages-list').append(html);
       textField.val('');
       $("input").prop("disabled", false)
+
+      var message = buildMessage(data);
+      $('.group-message').html(message);
+      textField.val('');
 
       flash();
       scroll();
