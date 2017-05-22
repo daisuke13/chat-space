@@ -12,4 +12,7 @@
             = message.created_at
           .chat-main__body--messages-list-message-comment
             = message.body
+          .chat-main__body--messages-list-message-image
+            - if message.image.present?
+              = image_tag message.image.url
   = render "chat-main__footer"

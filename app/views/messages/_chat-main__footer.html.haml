@@ -1,8 +1,9 @@
 .chat-main__footer
-  = form_for [@group, @message] do |f|
+  = form_for [@group, @message], html: { multipart: true } do |f|
     .chat-main__footer--form
       = f.text_field :body, class: 'input-text', placeholder: "type a message", cols: 80, rows: 1
       .chat-main__footer--form-pic
-        %i.fa.fa-picture-o
-          = f.file_field :image, class: 'file-picture'
+        %label
+          = f.file_field :image, class: 'file-picture', style: 'display:none'
+          %i.fa.fa-picture-o
     = f.submit "Send", class: "submit-btn"

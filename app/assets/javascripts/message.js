@@ -1,5 +1,11 @@
 $(function() {
   function buildHTML(message) {
+    var message_image = "";
+    if (message.image) {
+      message_image =  `<div class = "chat-main__body--messages-list-message-image">
+           <img src = "${message.image}" alt = "image">
+         </div>`
+    }
     var html =
       `<div class = "chat-main__body--messages-list-message">
          <div class = "chat-main__body--messages-list-message-name">
@@ -11,6 +17,7 @@ $(function() {
          <div class = "chat-main__body--messages-list-message-comment">
            ${message.body}
          </div>
+         ${message_image}
        </div>`
     return html;
   }
@@ -43,16 +50,14 @@ $(function() {
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var textField = $('#message_body');
-    var message = textField.val();
+    var messageData = new FormData($(this).get(0));
     $.ajax({
       type: 'POST',
       url: './messages',
-      data: {
-        message: {
-          body: message
-        }
-      },
-      dataType: 'json'
+      data: messageData,
+      dataType: 'json',
+      processData: false,
+      contentType: false
     })
     .done(function(data) {
       var html = buildHTML(data);
@@ -61,15 +66,17 @@ $(function() {
       $("input").prop("disabled", false)
 
       var message = buildMessage(data);
-      $('.group-message').html(message);
+      var group_id = ".id-" + data.group_id
+      $(group_id).html(message);
       textField.val('');
-
+      $('#new_message')[0].reset();
       flash();
       scroll();
     })
 
     .fail(function() {
       alert('メッセージを送信できませんでした');
+      $("input").prop("disabled", false)
     });
   });
 });

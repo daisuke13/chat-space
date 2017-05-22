@@ -17,7 +17,7 @@
         .chat-side__groups-list-group
           %p.group-name
             = link_to group.name, group_messages_path(group)
-          %p.group-message
+          %p(class ='group-message id-#{group.id}')
             - if group.messages.present?
               = group.messages.last.body
             - else

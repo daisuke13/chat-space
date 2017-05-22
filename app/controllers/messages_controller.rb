@@ -11,7 +11,6 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.save
       respond_to do |format|
-        # format.html { redirect_to group_messages_path, notice: "メッセージが送信されました" }
         format.json
       end
     else
@@ -30,6 +29,6 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:body).merge(group_id: params[:group_id], user_id: current_user.id)
+    params.require(:message).permit(:body, :image).merge(group_id: params[:group_id], user_id: current_user.id)
   end
 end
