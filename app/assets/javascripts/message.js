@@ -50,7 +50,6 @@ $(function() {
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var textField = $('#message_body');
-    var message = textField.val();
     var messageData = new FormData($(this).get(0));
     $.ajax({
       type: 'POST',
