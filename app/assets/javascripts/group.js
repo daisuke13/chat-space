@@ -22,13 +22,6 @@ $(function() {
      return html
   }
 
-           // <div id='chat-group-users'>
-           // <div class='chat-group-user clearfix' id='chat-group-user-22'>
-           // <input name='chat_group[user_ids][]' type='hidden' value='22'>
-           // <p class='chat-group-user__name'>seo_kyohei</p>
-           // </div>
-           // </div>
-
 //コントローラーへjson形式でデータの送信
   $('#user-search-field').on('keyup', function(e) {
     e.preventDefault();
@@ -43,7 +36,6 @@ $(function() {
 
 //コントローラーからデータ取得後、ユーザーリストの作成
     .done(function(data) {
-      console.log(data)
       $('#user-search-result').find('.chat-group-user').remove();
       $(data).each(function(i, user) {
         appendList(user)
@@ -63,7 +55,7 @@ $(function() {
 
 //ユーザーの削除
   $('#chat-group-users').on('click', '.chat-group-user__btn--remove', function() {
-    var id = $(this).data('user-id');
+    // var id = $(this).data('user-id');
     $(this).parent().remove();
   })
 })
