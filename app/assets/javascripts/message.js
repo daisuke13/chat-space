@@ -1,5 +1,11 @@
 $(function() {
   function buildHTML(message) {
+    var message_image = "";
+    if (message.image) {
+      message_image =  `<div class = "chat-main__body--messages-list-message-image">
+           <img src = "${message.image}" alt = "image">
+         </div>`
+    }
     var html =
       `<div class = "chat-main__body--messages-list-message">
          <div class = "chat-main__body--messages-list-message-name">
@@ -11,9 +17,7 @@ $(function() {
          <div class = "chat-main__body--messages-list-message-comment">
            ${message.body}
          </div>
-         <div class = "chat-main__body--messages-list-message-image">
-           <img src = "${message.image}" alt = "image">
-         </div>
+         ${message_image}
        </div>`
     return html;
   }
@@ -52,13 +56,7 @@ $(function() {
       type: 'POST',
       url: './messages',
       data: messageData,
-      // data: {
-      //   message: {
-      //     body: message
-      //   }
-      // },
       dataType: 'json',
-      // context: this,
       processData: false,
       contentType: false
     })
@@ -72,13 +70,14 @@ $(function() {
       var group_id = ".id-" + data.group_id
       $(group_id).html(message);
       textField.val('');
-
+      $('#new_message')[0].reset();
       flash();
       scroll();
     })
 
     .fail(function() {
       alert('メッセージを送信できませんでした');
+      $("input").prop("disabled", false)
     });
   });
 });
