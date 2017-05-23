@@ -103,6 +103,7 @@ $(function() {
           insertHTML += buildHTML(message);
           }
           $('.chat-main__body--messages-list').append(insertHTML);
+          scroll();
         });
       })
 
