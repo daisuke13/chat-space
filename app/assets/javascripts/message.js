@@ -7,7 +7,7 @@ $(function() {
          </div>`
     }
     var html =
-      `<div class = "chat-main__body--messages-list-message">
+      `<div class = "chat-main__body--messages-list-message" id = "${message.id}">
          <div class = "chat-main__body--messages-list-message-name">
            ${message.name}
          </div>
@@ -47,6 +47,8 @@ $(function() {
       }, 1500);
   }
 
+
+// message送信の非同期通信
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var textField = $('#message_body');
@@ -59,6 +61,7 @@ $(function() {
       processData: false,
       contentType: false
     })
+
     .done(function(data) {
       var html = buildHTML(data);
       $('.chat-main__body--messages-list').append(html);
@@ -79,4 +82,33 @@ $(function() {
       $("input").prop("disabled", false)
     });
   });
+
+
+// message自動更新
+  if (window.location.href.match(/messages/)) {
+    setInterval(function(){
+      var last_id = $('.chat-main__body--messages-list-message').last().attr('id');
+      console.log(last_id);
+      $.ajax({
+        type: 'GET',
+        url: window.location.href,
+        data: { id: last_id },
+        dataType: 'json'
+      })
+
+      .done(function(data) {
+        var insertHTML = '';
+        data.messages.forEach(function(message) {
+          if (message.id > last_id) {
+          insertHTML += buildHTML(message);
+          }
+          $('.chat-main__body--messages-list').append(insertHTML);
+        });
+      })
+
+      .fail(function(data) {
+        alert('自動更新に失敗しました');
+      });
+    }, 5000);
+  }
 });

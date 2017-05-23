@@ -8,7 +8,6 @@ $(function() {
        <a class = "user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id = "${user.id}" data-user-name = "${user.name}">追加</a>
      </div>`;
      $('#user-search-result').append(html)
-     console.log(html)
   }
 
 //追加ボタンクリック後の、ユーザー名と削除ボタンのHTML
