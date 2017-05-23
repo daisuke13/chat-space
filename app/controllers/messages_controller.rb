@@ -5,13 +5,9 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    # binding.pry
     respond_to do |format|
       format.html
       format.json {
-        puts "++++++++++++++++"
-        puts params[:id]
-        puts "++++++++++++++++"
         @messages = Message.where("id > ?", params[:id])
       }
     end
@@ -34,7 +30,6 @@ class MessagesController < ApplicationController
   end
 
   def set_messages
-    puts "++++ MessagesController#set_messages ++++"
     @messages = @group.messages.includes(:user)
   end
 
