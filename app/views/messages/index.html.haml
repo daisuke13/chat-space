@@ -5,7 +5,7 @@
   .chat-main__body
     .chat-main__body--messages-list
       - @messages.each do |message|
-        .chat-main__body--messages-list-message
+        .chat-main__body--messages-list-message{ id: "#{message.id}" }
           .chat-main__body--messages-list-message-name
             = message.user.name
           .chat-main__body--messages-list-message-date
